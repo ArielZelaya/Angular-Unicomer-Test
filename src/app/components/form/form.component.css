@@ -1,0 +1,35 @@
+/*form css*/
+
+.form{
+    max-width: 90%;
+    margin: auto;
+}
+
+.pulled-right{
+    text-align: right;
+}
+
+.success{
+    background-color: #009628;
+    color: #ffffff;
+}
+.mat-form-field{
+    width: 100%;
+}
+
+/*Table Styles*/
+table {
+    width: 100%;
+    margin:  auto;
+  }
+
+  /* rows */
+.mat-row:hover {
+    background-color: #1491f6;
+}
+/*Media query for smal devices*/
+@media only screen and (max-width: 810px) {
+.table{
+    display: none;
+    }
+}

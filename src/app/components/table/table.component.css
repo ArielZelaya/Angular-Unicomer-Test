@@ -1,0 +1,10 @@
+/*Table Styles*/
+table {
+    width: 90%;
+    margin:  auto;
+  }
+
+  /* rows */
+  .mat-row:hover {
+    background-color: #055ea9;
+  }
