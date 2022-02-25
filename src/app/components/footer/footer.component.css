@@ -1,0 +1,11 @@
+.footer{
+    background-color: #1d325c;
+    margin-top: 70px;
+    background-image: url('../../../assets/img/footer-bg.png');
+}
+
+
+.container.wrapper{
+    padding: 35px;
+    color: #fff;
+}

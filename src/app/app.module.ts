@@ -10,6 +10,10 @@ import { TableComponent } from './components/table/table.component';
 import { FormComponent } from './components/form/form.component'
 import {MatNativeDateModule} from '@angular/material/core';
 import { FormsModule } from '@angular/forms';
+import { FooterComponent } from './components/footer/footer.component';
+// input mask
+import { NgxMaskModule, IConfig } from 'ngx-mask';
+import { MatMomentDateModule } from "@angular/material-moment-adapter";
 
 @NgModule({
   declarations: [
@@ -17,6 +21,7 @@ import { FormsModule } from '@angular/forms';
     NavbarComponent,
     TableComponent,
     FormComponent,
+    FooterComponent,
     
   ],
   imports: [
@@ -25,7 +30,9 @@ import { FormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     AngularMaterialModule,
     MatNativeDateModule,
-    FormsModule
+    FormsModule,
+    NgxMaskModule.forRoot(),
+    MatMomentDateModule
   ],
   providers: [],
   bootstrap: [AppComponent]

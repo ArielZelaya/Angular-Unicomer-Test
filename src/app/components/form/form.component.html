@@ -1,145 +1,143 @@
+<div id="formulario" class="container form">
+  <h2>Complete the required information</h2>
 
-<div class="container form mt-4 ">
-    <h2>Complete the required information</h2>
-
-    <h3>Personal Information</h3>
-    <div class="row">
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>First Name</mat-label>
-                <input name="fname" [(ngModel)]="selectedCustomer.fname" matInput placeholder="Ex. Abisai" name="">
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Last Name</mat-label>
-                <input name="lname" [(ngModel)]="selectedCustomer.lname" matInput placeholder="Ex. Hebrew" >
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>BirthDay</mat-label>
-                <input name="bday" [(ngModel)]="selectedCustomer.bday" matInput [matDatepicker]="picker">
-                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                <mat-datepicker touchUi #picker></mat-datepicker>
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field appearance="fill">
-                <mat-label>Gender</mat-label>
-                <mat-select name="gender" [(ngModel)]="selectedCustomer.gender">
-                  <mat-option  *ngFor="let gender of genders" [value]="gender.value">
-                    {{gender.viewValue}}
-                  </mat-option>
-                </mat-select>
-              </mat-form-field>
-        </div>
+  <h3>Personal Information</h3>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>First Name</mat-label>
+        <input name="fname" [(ngModel)]="selectedCustomer.fname" matInput placeholder="Ex. Abisai" onkeypress="return String.fromCharCode(event.charCode).match(/[^a-zA-Z]/g) === null">
+      </mat-form-field>
     </div>
-    <h4>Contact information</h4>
-    <div class="row">
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Cellphone</mat-label>
-                <input name="cellphone" [(ngModel)]="selectedCustomer.cellphone" matInput placeholder="Ex. Pizza" type="tel" >
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Home phone</mat-label>
-                <input [(ngModel)]="selectedCustomer.homephone" matInput placeholder="Ex. Pizza" >
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Address Home</mat-label>
-                <input name="address" [(ngModel)]="selectedCustomer.address" matInput placeholder="Ex. Pizza" >
-              </mat-form-field>
-        </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Last Name</mat-label>
+        <input name="lname" [(ngModel)]="selectedCustomer.lname" matInput placeholder="Ex. Hebrew" onkeypress="return String.fromCharCode(event.charCode).match(/[^a-zA-Z]/g) === null">
+      </mat-form-field>
     </div>
-    <h4>Aditional information</h4>
-    <div class="row">
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Profession</mat-label>
-                <input name="profession" [(ngModel)]="selectedCustomer.profession" matInput placeholder="Ex. Lawyer, Doctor, etc" >
-              </mat-form-field>
-        </div>
-        <div class="col-4">
-            <mat-form-field class="example-full-width" appearance="fill">
-                <mat-label>Incomes</mat-label>
-                <input name="income" [(ngModel)]="selectedCustomer.income" matInput placeholder="Ex. $2,500" >
-              </mat-form-field>
-        </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>BirthDay</mat-label>
+        <input name="bday" [(ngModel)]="selectedCustomer.bday" matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker touchUi #picker></mat-datepicker>
+      </mat-form-field>
     </div>
-    <div class="container pulled-right">
-        <div class="row text-right">
-            <div class="col "> <button (click)="addCustomer()" mat-raised-button class="success">Save</button></div>
-        </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field appearance="fill">
+        <mat-label>Gender</mat-label>
+        <mat-select name="gender" [(ngModel)]="selectedCustomer.gender">
+          <mat-option *ngFor="let gender of genders" [value]="gender.value">
+            {{gender.viewValue}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
     </div>
+  </div>
+  <h4>Contact information</h4>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Cellphone</mat-label>
+        <input name="cellphone" matInput mask="(000) 000-0000" [(ngModel)]="selectedCustomer.cellphone" matInput placeholder="Ex. (123) 456-7890" type="tel" onkeypress="return String.fromCharCode(event.charCode).match(/[^0-9]/g) === null">
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Home phone</mat-label>
+        <input [(ngModel)]="selectedCustomer.homephone" matInput mask="(000) 000-0000" placeholder="Ex. (123) 456-7890">
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Address Home</mat-label>
+        <input id="homeaddress" name="address" [(ngModel)]="selectedCustomer.address" matInput placeholder="Ex. Buena Vista Blv, Jamaica">
+      </mat-form-field>
+    </div>
+  </div>
+  <h4>Aditional information</h4>
+  <div class="row">
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Profession</mat-label>
+        <input name="profession" [(ngModel)]="selectedCustomer.profession" matInput
+          placeholder="Ex. Lawyer, Doctor, etc" onkeypress="return String.fromCharCode(event.charCode).match(/[^a-zA-Z]/g) === null">
+      </mat-form-field>
+    </div>
+    <div class="col-12 col-sm-4">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Incomes</mat-label>
+        <input name="income" [(ngModel)]="selectedCustomer.income" matInput placeholder="Ex. $2,500" onkeypress="return String.fromCharCode(event.charCode).match(/[^0-9]/g) === null">
+      </mat-form-field>
+    </div>
+  </div>
+  <div class="container pulled-right">
+    <div class="row text-right">
+      <div class="col "> <button (click)="addCustomer()" mat-raised-button class="success">Save</button></div>
+    </div>
+  </div>
 </div>
 
-<div class="container table mt-4">
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
-        <!--- Note that these columns can be defined in any order.
+
+<div id="lista" class="container table mt-4">
+  <h2>Posible Customers List</h2>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!--- Note that these columns can be defined in any order.
               The actual rendered columns are set as a property on the row definition" -->
-      
-        <!-- Position Column -->
-        <ng-container matColumnDef="Id">
-            <th mat-header-cell *matHeaderCellDef> First Name </th>
-            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="First Name">
-          <th mat-header-cell *matHeaderCellDef> First Name </th>
-          <td mat-cell *matCellDef="let element"> {{element.fname}} </td>
-        </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Last Name">
-            <th mat-header-cell *matHeaderCellDef>Last Name</th>
-            <td mat-cell *matCellDef="let element"> {{element.lname}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="BirthDay">
-            <th mat-header-cell *matHeaderCellDef>BirthDay</th>
-            <td mat-cell *matCellDef="let element"> {{element.bday}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Gender">
-            <th mat-header-cell *matHeaderCellDef>Gender</th>
-            <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Cellphone">
-            <th mat-header-cell *matHeaderCellDef>Cellphone</th>
-            <td mat-cell *matCellDef="let element"> {{element.cellphone}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Homephone">
-            <th mat-header-cell *matHeaderCellDef>Homephone</th>
-            <td mat-cell *matCellDef="let element"> {{element.homephone}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Address">
-            <th mat-header-cell *matHeaderCellDef>Address</th>
-            <td mat-cell *matCellDef="let element"> {{element.address}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Profession">
-            <th mat-header-cell *matHeaderCellDef>Profession</th>
-            <td mat-cell *matCellDef="let element"> {{element.profession}} </td>
-          </ng-container>
-        <!-- Position Column -->
-        <ng-container matColumnDef="Income">
-            <th mat-header-cell *matHeaderCellDef>Income</th>
-            <td mat-cell *matCellDef="let element"> {{element.income}} </td>
-          </ng-container>
-      
-        
-      
-        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-      </table>
-      
-      
+
+
+    <!-- First Name  -->
+    <ng-container matColumnDef="First Name">
+      <th mat-header-cell *matHeaderCellDef> First Name </th>
+      <td mat-cell *matCellDef="let element"> {{element.fname}} </td>
+    </ng-container>
+    <!-- Last Name -->
+    <ng-container matColumnDef="Last Name">
+      <th mat-header-cell *matHeaderCellDef>Last Name</th>
+      <td mat-cell *matCellDef="let element"> {{element.lname}} </td>
+    </ng-container>
+    <!-- BirthDay-->
+    <ng-container matColumnDef="BirthDay">
+      <th mat-header-cell *matHeaderCellDef>BirthDay</th>
+      <td mat-cell *matCellDef="let element"> {{element.bday}} </td>
+    </ng-container>
+    <!-- Gender -->
+    <ng-container matColumnDef="Gender">
+      <th mat-header-cell *matHeaderCellDef>Gender</th>
+      <td mat-cell *matCellDef="let element"> {{element.gender}} </td>
+    </ng-container>
+    <!-- Cellphone -->
+    <ng-container matColumnDef="Cellphone">
+      <th mat-header-cell *matHeaderCellDef>Cellphone</th>
+      <td mat-cell *matCellDef="let element"> {{element.cellphone}} </td>
+    </ng-container>
+    <!-- Homephone -->
+    <ng-container matColumnDef="Homephone">
+      <th mat-header-cell *matHeaderCellDef>Homephone</th>
+      <td mat-cell *matCellDef="let element"> {{element.homephone}} </td>
+    </ng-container>
+    <!-- Address -->
+    <ng-container matColumnDef="Address">
+      <th mat-header-cell *matHeaderCellDef>Address</th>
+      <td mat-cell *matCellDef="let element"> {{element.address}} </td>
+    </ng-container>
+    <!-- Profession -->
+    <ng-container matColumnDef="Profession">
+      <th mat-header-cell *matHeaderCellDef>Profession</th>
+      <td mat-cell *matCellDef="let element"> {{element.profession}} </td>
+    </ng-container>
+    <!-- Income -->
+    <ng-container matColumnDef="Income">
+      <th mat-header-cell *matHeaderCellDef>Income</th>
+      <td mat-cell *matCellDef="let element"> ${{element.income}} </td>
+    </ng-container>
+
+
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
 </div>
+

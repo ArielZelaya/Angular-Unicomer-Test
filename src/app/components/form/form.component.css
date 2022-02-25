@@ -3,6 +3,7 @@
 .form{
     max-width: 90%;
     margin: auto;
+    margin-top: 70px ;
 }
 
 .pulled-right{
@@ -25,7 +26,7 @@ table {
 
   /* rows */
 .mat-row:hover {
-    background-color: #1491f6;
+    background-color: #b1b0b0;
 }
 /*Media query for smal devices*/
 @media only screen and (max-width: 810px) {
